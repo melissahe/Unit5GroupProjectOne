@@ -7,6 +7,7 @@ target 'Unit5GroupProjectOne' do
 
   # Pods for Unit5GroupProjectOne
 	pod 'SnapKit', '~> 4.0.0'
+	pod 'Alamofire', '~> 4.5'
 
   target 'Unit5GroupProjectOneTests' do
     inherit! :search_paths
