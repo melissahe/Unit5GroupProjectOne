@@ -16,7 +16,6 @@ class SearchCollectionViewCell: UICollectionViewCell {
     
     lazy var searchCellImage: UIImageView = {
         let image = UIImageView()
-        //TODO: set image
         image.image = #imageLiteral(resourceName: "placeholder")
         return image
     }()
@@ -36,7 +35,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         addSubview(searchCellImage)
         searchCellImage.snp.makeConstraints { (image) in
-            image.top.bottom.leading.trailing.equalTo(self)
+            image.edges.equalTo(self).multipliedBy(0.80)
+            image.centerX.centerY.equalTo(self)
         }
     }
         //set up initializers (so that you can register them to collection views)
@@ -61,7 +61,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
                     self.searchCellImage.kf.setImage(with: url, placeholder: UIImage.init(named: "placeholder-image"), options: nil, progressBlock: nil, completionHandler: { (image, error, cache, url) in
                     
                         if let image = image {
-                        ImageCache.default.store(image, forKey: venue.id) //store image with venue id
+                        ImageCache.default.store(image, forKey: venue.id) 
                         }
                     })
                 }

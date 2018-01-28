@@ -75,6 +75,7 @@ class VenueTableViewCell: UITableViewCell {
                 return
             } else {
                 self.venueImage.image = #imageLiteral(resourceName: "placeholder")
+                
             }
         }
         PhotoAPIClient.manager.getPhotos(venue: venue.id, completion: { (photo) in
