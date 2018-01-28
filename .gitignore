@@ -69,3 +69,4 @@ fastlane/screenshots
 fastlane/test_output
 Podfile
 Podfile.lock
+Unit5GroupProjectOne/Models/APIKeys.swift

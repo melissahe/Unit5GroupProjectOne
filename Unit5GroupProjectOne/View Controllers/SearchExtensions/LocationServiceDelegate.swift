@@ -43,9 +43,12 @@ extension SearchViewController: LocationServiceDelegate {
         let userCoordinates = searchView.mapView.userLocation.coordinate
         
         if numberOfLaunches == 0 {
-            let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            //let mapSpan = CLLocation(latitudeDelta: 40.743034, longitudeDelta: -73.941832)
             searchView.mapView.showsUserLocation = true
-            let userRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userCoordinates.latitude, longitude: userCoordinates.longitude), span: mapSpan)
+            //let userRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userCoordinates.latitude, longitude: userCoordinates.longitude), span: mapSpan)
+            let regionRadius: CLLocationDistance = 10000
+            let userRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                      regionRadius, regionRadius)
             searchView.mapView.setRegion(userRegion, animated: true)
             numberOfLaunches += 1
         }

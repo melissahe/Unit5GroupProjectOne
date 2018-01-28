@@ -53,15 +53,12 @@ class SearchViewController: UIViewController {
         setUpLocationServices()
         let textFieldInsideSearchBar = searchView.locationSearchBar.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = UIColor(displayP3Red: 0.67, green: 0.07, blue: 0.50, alpha: 1)
-        definesPresentationContext = true 
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         let _ = LocationService.manager.checkAuthorizationStatusAndLocationServices()
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -134,6 +131,8 @@ extension SearchViewController {
                 break
             }
         }
+        
+        
     }
      func presentSettingsAlertController(withTitle title: String?, andMessage message: String?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -231,6 +230,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let venue = venues[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionCell", for: indexPath) as! SearchCollectionViewCell
         cell.configureCell(withVenue: venue)
+        cell.layer.cornerRadius = cell.bounds.size.width / 2
+        cell.layer.borderColor = UIColor.red.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.7
+        cell.layer.shadowOffset = CGSize.zero
+        cell.layer.shadowRadius = 7
+        cell.layer.masksToBounds = true
         cell.contentView.backgroundColor = .clear
         return cell
     }
