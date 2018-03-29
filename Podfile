@@ -6,8 +6,9 @@ target 'Unit5GroupProjectOne' do
   use_frameworks!
 
   # Pods for Unit5GroupProjectOne
-    pod 'SnapKit', '~> 4.0.0'
-    pod 'Alamofire', '~> 4.6'
+    pod 'SnapKit'
+    pod 'Alamofire'
+    pod 'Kingfisher'
 
   target 'Unit5GroupProjectOneTests' do
     inherit! :search_paths

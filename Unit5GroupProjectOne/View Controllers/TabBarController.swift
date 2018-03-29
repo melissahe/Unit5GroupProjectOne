@@ -13,16 +13,16 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .orange//.lightGray
         
         ///SearchVC
         let searchNavigation = UINavigationController(rootViewController: SearchViewController())
         ///FavoriteVC
-        let favoriteVC = FavoriteViewController()
+        let favoriteNavigation = UINavigationController(rootViewController: FavoriteCollectionViewController())
         
-        searchNavigation.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        favoriteVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        let tabList = [searchNavigation, favoriteVC]
+        searchNavigation.tabBarItem = UITabBarItem(title: "Search", image: #imageLiteral(resourceName: "search icon"), tag: 0)
+        favoriteNavigation.tabBarItem = UITabBarItem(title: "Favorites", image: #imageLiteral(resourceName: "collection icon"), tag: 1)
+        let tabList = [searchNavigation, favoriteNavigation]
         viewControllers = tabList
     }
 
